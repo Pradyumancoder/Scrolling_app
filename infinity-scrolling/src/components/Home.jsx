@@ -9,7 +9,7 @@ const Home = () => {
 
   const getCardData = async () => {
     const res = await fetch(
-      `https://fuzzy-erin-gaiters.cyclic.app/book?_limit=9&_page=${page}`
+      `https://jsonplaceholder.typicode.com/photos?_limit=9&_page=${page}`
     );
     const data = await res.json();
     setCard((prev) => [...prev, ...data]);
