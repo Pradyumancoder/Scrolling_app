@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Loading from "./Loading";
-import MovieComponent from "./MovieComponent";
+import BookComponent from "./BookComponent"; // Correct import
 
 const Home = () => {
   const [card, setCard] = useState([]);
@@ -12,40 +12,32 @@ const Home = () => {
       `https://fuzzy-erin-gaiters.cyclic.app/book?_limit=9&_page=${page}`
     );
     const data = await res.json();
-    // console.log(data);
     setCard((prev) => [...prev, ...data]);
     setLoading(false);
   };
- 
+
   useEffect(() => {
     getCardData();
   }, [page]);
 
-  const handelInfiniteScroll = async () => {
-    console.log("scrollHeight" + document.documentElement.scrollHeight);
-    console.log("innerHeight" + window.innerHeight);
-    console.log("scrollTop" + document.documentElement.scrollTop);
-    try {
-      if (
-        window.innerHeight + document.documentElement.scrollTop + 1 >=
-        document.documentElement.scrollHeight
-      ) {
-        setLoading(true);
-        setPage((prev) => prev + 1);
-      }
-    } catch (error) {
-      console.log(error);
+  const handleInfiniteScroll = () => {
+    if (
+      window.innerHeight + window.scrollY >= document.documentElement.offsetHeight - 1 &&
+      !loading
+    ) {
+      setLoading(true);
+      setPage((prev) => prev + 1);
     }
   };
 
   useEffect(() => {
-    window.addEventListener("scroll", handelInfiniteScroll);
-    return () => window.removeEventListener("scroll", handelInfiniteScroll);
-  }, []);
+    window.addEventListener("scroll", handleInfiniteScroll);
+    return () => window.removeEventListener("scroll", handleInfiniteScroll);
+  }, [loading]);
 
   return (
     <>
-      <MovieComponent movieInfo={card} />
+      <BookComponent movieInfo={card} />
       {loading && <Loading />}
     </>
   );
