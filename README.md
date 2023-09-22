@@ -14,7 +14,7 @@
 <h2>Features</h2>
 <ul>
     <li>Infinity scrolling: Load more items as you scroll down.</li>
-    <li>Responsive design: Works well on different screen sizes.</li>
+    
     <li>Customizable: Easily integrate with your own data source.</li>
 </ul>
 
