@@ -1,14 +1,14 @@
 import React from "react";
-import BookCard from "./BookCard"; // Correct import
+import MovieCard from "./MovieCard";
 
-const BookComponent = ({ movieInfo }) => {
+const MovieComponent = ({ movieInfo }) => {
   return (
     <div className="wrapper">
       <div className="container">
         <h1>List of cards</h1>
         <div className="grid grid-three-column">
           {movieInfo.map((curVal, id) => {
-            return <BookCard key={id} myData={curVal} />;
+            return <MovieCard key={id} myData={curVal} />;
           })}
         </div>
       </div>
@@ -16,4 +16,4 @@ const BookComponent = ({ movieInfo }) => {
   );
 };
 
-export default BookComponent;
+export default MovieComponent;

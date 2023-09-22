@@ -105,7 +105,7 @@ button:focus-visible {
   }
   .card-info {
     padding: 0rem;
-    background-color: #213547;
+    background-color: white;
   }
 }
 
@@ -126,10 +126,11 @@ p {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.4rem;
   line-height: 1.6rem;
+  color: white;
 }
 h2 {
   padding: 1rem;
-  background-color: #0e0f0f;
+  background-color: white;
   text-align: left;
   font-family: "Cormorant Garamond", serif;
   text-transform: capitalize;
